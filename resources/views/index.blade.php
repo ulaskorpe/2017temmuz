@@ -22,20 +22,16 @@ define('url','http://localhost:8080/orangetech/public');
     <!-- main menu-->
 @include('sol-menu')
     <!-- / main menu-->
-
-    <div class="robust-content content container-fluid">
-      <div class="content-wrapper">
-        <div class="content-body" style="min-height: 1000px"><!-- project stats -->
-
+    <div style="width: 100%;margin:auto;">
+    <div style="min-height: 1000px; width: 70%;border: 0px solid black;margin-left: 300px;">
            @yield('goster') 
-
-        </div>
-      </div>
     </div>
+    </div>
+    
     <!-- ////////////////////////////////////////////////////////////////////////////-->
 
 
-@include('footer')
+
 
     @include('js')
   </body>

@@ -11,9 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+/*Route::get('/', function () {
+    return view('layouts.giris');
+});*/
+
+Route::get('/',array('as'=>'giris','uses'=>'ulasController@giris'));
 
 Route::get('/uyeler',array('as'=>'uyeler','uses'=>'ulasController@uyeler'));
 
+//Route::post('/postLogin',array('as'=>'postLogin','uses'=>'ulasController@postLogin'));
+Route::get('/postLogin',array('as'=>'postLogin','uses'=>'ulasController@postLogin'));
+
+Auth::routes();
+
+///Route::get('/home', 'HomeController@index')->name('home');
