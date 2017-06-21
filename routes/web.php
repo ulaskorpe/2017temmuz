@@ -28,6 +28,7 @@ Route::get('/profil',array('as'=>'profil','uses'=>'UserController@profil'));
 Route::get('/personel/sil/{id?}',array('as'=>'personelSil','uses'=>'ulasController@personelSil'));
 Route::get('/personel/guncelle/{id?}',array('as'=>'personelSil','uses'=>'ulasController@personelGuncelle'));
 
+Route::get('/departmanlar',array('as'=>'departmanlar','uses'=>'ulasController@departmanlar'));
 
 Auth::routes();
 

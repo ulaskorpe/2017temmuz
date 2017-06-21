@@ -124,4 +124,10 @@ public function personelGuncelle($id=0){
 
 }///fx personelguncelle
 
+
+public function departmanlar(){
+  return view('departman');
+}
+
+
 }////classs

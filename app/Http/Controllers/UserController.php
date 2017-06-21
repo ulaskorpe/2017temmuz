@@ -14,4 +14,5 @@ class UserController extends Controller
 public function profil(){
     return view('layouts.profil');
   }
+  
 }

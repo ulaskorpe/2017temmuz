@@ -12,18 +12,17 @@
           <li class=" nav-item"><a href="index.html"><i class="icon-home3"></i><span data-i18n="nav.dash.main" class="menu-title" onclick="window.open('<?=url;?>','_self');">
             
             Anasayfa
-          </span><span class="tag tag tag-primary tag-pill float-xs-right mr-2">5</span></a>
+          </span></a>
             <ul class="menu-content">
               <li class="active"><a href="<?=url;?>/personel" data-i18n="nav.dash.project" class="menu-item">Personel</a>
               </li>
-              <li><a href="dashboard-ecommerce.html" data-i18n="nav.dash.ecommerce" class="menu-item">eCommerce</a>
+              <li><a href="<?=url;?>/departmanlar" data-i18n="nav.dash.ecommerce" class="menu-item">Departmanlar</a>
               </li>
-              <li><a href="dashboard-analytics.html" data-i18n="nav.dash.analytics" class="menu-item">Analytics</a>
+              <li><a href="<?=url;?>/dosyalar" data-i18n="nav.dash.analytics" class="menu-item">Dosyalar</a>
               </li>
-              <li><a href="dashboard-crm.html" data-i18n="nav.dash.crm" class="menu-item">CRM</a>
+              <li><a href="<?=url;?>/izinler" data-i18n="nav.dash.crm" class="menu-item">Personel İzinleri</a>
               </li>
-              <li><a href="dashboard-fitness.html" data-i18n="nav.dash.fitness" class="menu-item">Fitness</a>
-              </li>
+              
             </ul>
           </li>
          
