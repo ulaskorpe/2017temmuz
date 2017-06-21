@@ -14,7 +14,7 @@
             Anasayfa
           </span><span class="tag tag tag-primary tag-pill float-xs-right mr-2">5</span></a>
             <ul class="menu-content">
-              <li class="active"><a href="<?=url;?>/uyeler" data-i18n="nav.dash.project" class="menu-item">Üyeler</a>
+              <li class="active"><a href="<?=url;?>/personel" data-i18n="nav.dash.project" class="menu-item">Personel</a>
               </li>
               <li><a href="dashboard-ecommerce.html" data-i18n="nav.dash.ecommerce" class="menu-item">eCommerce</a>
               </li>

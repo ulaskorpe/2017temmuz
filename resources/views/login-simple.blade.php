@@ -6,19 +6,9 @@
   <body data-open="click" data-menu="vertical-menu" data-col="1-column" class="vertical-layout vertical-menu 1-column  blank-page blank-page">
     <!-- START PRELOADER-->
 
-    <div id="preloader-wrapper">
-      <div id="loader">
-        <div class="line-scale-pulse-out-rapid loader-white">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </div>
-      <div class="loader-section section-top bg-cyan"></div>
-      <div class="loader-section section-bottom bg-cyan"></div>
-    </div>
+@include('loader')
+
+
 
     <!-- END PRELOADER-->
     <!-- ////////////////////////////////////////////////////////////////////////////-->
@@ -37,7 +27,8 @@
             </div>
             <div class="card-body collapse in">
                 <div class="card-block">
-                    <form class="form-horizontal form-simple" action="{{url('/postLogin')}}" novalidate>
+                    <form class="form-horizontal form-simple" action="{{url('/postLogin')}}" method="POST" role="form">
+                    {{csrf_field()}}
                         <fieldset class="form-group has-feedback has-icon-left mb-0">
                             <input type="text" class="form-control form-control-lg input-lg" id="username" name="username" placeholder="Kullanıcı Adınız" required>
                             <div class="form-control-position">
