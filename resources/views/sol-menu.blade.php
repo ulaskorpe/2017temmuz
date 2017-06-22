@@ -2,9 +2,11 @@
     <!-- main menu-->
     <div id="main-menu" data-scroll-to-active="true" class="main-menu menu-dark menu-fixed menu-shadow menu-accordion">
       <!-- main menu header-->
+      @if(0)
       <div class="main-menu-header">
         <input type="text" placeholder="Search" class="menu-search form-control round"/>
       </div>
+      @endif
       <!-- / main menu header-->
       <!-- main menu content-->
       <div class="main-menu-content">

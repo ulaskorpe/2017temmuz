@@ -27,18 +27,26 @@ Auth::routes();
 Route::get('/',array('as'=>'giris','uses'=>'ulasController@giris'));
 
 Route::get('/logout',array('as'=>'logout','uses'=>'ulasController@logout'));
+
 Route::get('/personel',array('as'=>'personel','uses'=>'ulasController@personel'));
 Route::post('/personelIslem',array('as'=>'personelIslem','uses'=>'ulasController@personelIslem'));
+Route::get('/personel/sil/{id?}',array('as'=>'personelSil','uses'=>'ulasController@personelSil'));
+Route::get('/personel/guncelle/{id?}',array('as'=>'personelGuncelle','uses'=>'ulasController@personelGuncelle'));
+
+
+Route::get('/departmanlar',array('as'=>'departmanlar','uses'=>'departmanController@departmanlar'));
+Route::post('/departmanIslem',array('as'=>'departmanIslem','uses'=>'departmanController@departmanIslem'));
+Route::get('/departmanlar/guncelle/{id?}',array('as'=>'departmanGuncelle','uses'=>'departmanController@departmanGuncelle'));
+Route::get('/departmanlar/sil/{id?}',array('as'=>'departmanSil','uses'=>'departmanController@departmanSil'));
+Route::post('/departmanAtaveSil',array('as'=>'departmanAtaveSil','uses'=>'departmanController@departmanAtaveSil'));
 
 //Route::post('/postLogin',array('as'=>'postLogin','uses'=>'ulasController@postLogin'));
 ///Route::post('/postLogin',array('as'=>'postLogin','uses'=>'ulasController@postLogin'));
 
 Route::get('/profil',array('as'=>'profil','uses'=>'UserController@profil'));
 
-Route::get('/personel/sil/{id?}',array('as'=>'personelSil','uses'=>'ulasController@personelSil'));
-Route::get('/personel/guncelle/{id?}',array('as'=>'personelSil','uses'=>'ulasController@personelGuncelle'));
 
-Route::get('/departmanlar',array('as'=>'departmanlar','uses'=>'ulasController@departmanlar'));
+
 
 
 

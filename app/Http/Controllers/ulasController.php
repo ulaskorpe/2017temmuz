@@ -7,13 +7,15 @@ use Validator;
 use App\Http\Models\Personel;
 use Session;
 use Auth;
+use App\Http\Models\Departman;
 class ulasController extends Controller
 {
 
 
 public function giris(){
   if (Auth::check()){
-    return view('index'); 
+    //return view('personel'); 
+    return redirect()->route('personel');
 }else{
   return view('login-simple');
   //return view('auth.login');
@@ -25,7 +27,7 @@ public function giris(){
 
 
 public function __construct(){
- // $this->middleware('auth');
+  $this->middleware('auth');
 }
 
 
@@ -48,8 +50,9 @@ public function logout(){
 
   public function personel(){
     Session::put('sayfa',1);
-    $personel= Personel::whereRaw('id!=?',array(0))->get();
-    return  view('personel',array('personel'=>$personel));
+    $personel= Personel::whereRaw('id!=?',array(0))->orderBy('giris_tarihi')->get();
+    $departmanlar= Departman::whereRaw('id!=?',array(0))->get();
+    return  view('personel',array('personel'=>$personel,'departmanlar'=>$departmanlar));
   }
 
 
@@ -100,31 +103,25 @@ return redirect()->route('personel');
 public function personelSil($id=0){
 Session::put('sayfa',1);
 if($id!=0){
-
 Personel::where('id','=',$id)->delete();
-
-
 }
 
- return redirect()->route('personel');
+return redirect()->route('personel');
 
 }///fx personelsil
 
 
 public function personelGuncelle($id=0){
 Session::put('sayfa',1);
+    $departmanlar= Departman::whereRaw('id!=?',array(0))->get();
      $personel= Personel::whereRaw('id!=?',array(0))->get();
      $seciliPersonel=Personel::whereRaw('id=?',array($id))->first();;
 
-      return  view('personel',array('personel'=>$personel,'seciliPersonel'=>$seciliPersonel));
+      return  view('personel',array('personel'=>$personel,'seciliPersonel'=>$seciliPersonel,'departmanlar'=>$departmanlar));
 
 }///fx personelguncelle
 
 
-public function departmanlar(){
-  Session::put('sayfa',2);
-  return view('departman');
-}
 
 
 }////classs
