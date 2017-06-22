@@ -66,6 +66,8 @@ return [
 
     'timezone' => 'UTC',
 
+    'sayfa'=>0,
+
     /*
     |--------------------------------------------------------------------------
     | Application Locale Configuration

@@ -21,25 +21,37 @@
         <div class="card border-grey border-lighten-3 m-0">
             <div class="card-header no-border">
                 <div class="card-title text-xs-center">
-                    <div class="p-1"><img src="login/images/logo/orangetech-logo.png" alt="branding logo"></div>
+                    <div class="p-1"><img src="login-files/images/logo/orangetech-logo.png" alt="branding logo"></div>
                 </div>
                 <h6 class="card-subtitle line-on-side text-muted text-xs-center font-small-3 pt-2"><span>Giriş Formu</span></h6>
             </div>
             <div class="card-body collapse in">
                 <div class="card-block">
-                    <form class="form-horizontal form-simple" action="{{url('/postLogin')}}" method="POST" role="form">
+                    <form class="form-horizontal form-simple" action="{{ route('login') }}" method="POST" role="form">
                     {{csrf_field()}}
                         <fieldset class="form-group has-feedback has-icon-left mb-0">
-                            <input type="text" class="form-control form-control-lg input-lg" id="username" name="username" placeholder="Kullanıcı Adınız" required>
+                            <input type="text" class="form-control form-control-lg input-lg" id="email" name="email" placeholder="Eposta Adresiniz" required>
                             <div class="form-control-position">
                                 <i class="icon-head"></i>
                             </div>
+
+
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
                         </fieldset>
                         <fieldset class="form-group has-feedback has-icon-left">
                             <input type="password" class="form-control form-control-lg input-lg" id="password" name="password" placeholder="Şifreniz" required>
                             <div class="form-control-position">
                                 <i class="icon-key3"></i>
                             </div>
+                              @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
                         </fieldset>
                         <fieldset class="form-group row">
                             <div class="col-md-6 col-xs-12 text-xs-center text-md-left">

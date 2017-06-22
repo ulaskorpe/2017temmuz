@@ -5,54 +5,49 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
 use App\Http\Models\Personel;
-
+use Session;
+use Auth;
 class ulasController extends Controller
 {
 
 
-  public function giris(){
-  	 return view('login-simple');
-
-  	//return view('index');
-
-  }
-
-
-
-  public function postLogin(Request $gelenler){
-  	$kontrol = Validator::make($gelenler->all(),array(
-
-  		'username'=>'required',
-  		'password'=>'required'
-
-  		));
-
-  	if($kontrol->fails()){
-
-  			return redirect()->route('giris');//webdeki as ismi
-  	}else{
-  		$username=$gelenler->input('username');
-  		$password=$gelenler->input('password');
-
-if($this->middleware('auth')){
-  return "login";
+public function giris(){
+  if (Auth::check()){
+    return view('index'); 
 }else{
-  		//return $username.":".$password;
-  	return view('login-simple',array('username'=>$username,'password'=>$password));
+  return view('login-simple');
+  //return view('auth.login');
+    
 }
 
-  	}
 
-  }
-
-
+}
 
 
 public function __construct(){
-  //$this->middleware('auth');
+ // $this->middleware('auth');
 }
 
+
+/*public function giris(){
+  	
+if(!Auth()->id()){
+     return view('login-simple');
+}else{
+  	return view('index')->middleware('auth');
+}
+
+
+}*/
+
+public function logout(){
+  Auth::logout();
+  return redirect()->route('giris');
+}
+
+
   public function personel(){
+    Session::put('sayfa',1);
     $personel= Personel::whereRaw('id!=?',array(0))->get();
     return  view('personel',array('personel'=>$personel));
   }
@@ -60,6 +55,7 @@ public function __construct(){
 
 
 public function personelIslem(Request $gelenler){
+   Session::put('sayfa',1);
 $pid=$gelenler->input('id');
 $kontrol = Validator::make($gelenler->all(),array(
 
@@ -102,7 +98,7 @@ return redirect()->route('personel');
 
 
 public function personelSil($id=0){
-
+Session::put('sayfa',1);
 if($id!=0){
 
 Personel::where('id','=',$id)->delete();
@@ -116,7 +112,7 @@ Personel::where('id','=',$id)->delete();
 
 
 public function personelGuncelle($id=0){
-
+Session::put('sayfa',1);
      $personel= Personel::whereRaw('id!=?',array(0))->get();
      $seciliPersonel=Personel::whereRaw('id=?',array($id))->first();;
 
@@ -126,6 +122,7 @@ public function personelGuncelle($id=0){
 
 
 public function departmanlar(){
+  Session::put('sayfa',2);
   return view('departman');
 }
 
