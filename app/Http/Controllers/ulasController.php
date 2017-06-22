@@ -12,18 +12,8 @@ class ulasController extends Controller
 {
 
 
-public function giris(){
-  if (Auth::check()){
-    //return view('personel'); 
-    return redirect()->route('personel');
-}else{
-  return view('login-simple');
-  //return view('auth.login');
-    
-}
 
 
-}
 
 
 public function __construct(){

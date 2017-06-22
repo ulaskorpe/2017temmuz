@@ -24,7 +24,7 @@ Auth::routes();
 
 
 
-Route::get('/',array('as'=>'giris','uses'=>'ulasController@giris'));
+Route::get('/',array('as'=>'giris','uses'=>'girisController@giris'));
 
 Route::get('/logout',array('as'=>'logout','uses'=>'ulasController@logout'));
 
@@ -44,11 +44,16 @@ Route::post('/departmanAtaveSil',array('as'=>'departmanAtaveSil','uses'=>'depart
 ///Route::post('/postLogin',array('as'=>'postLogin','uses'=>'ulasController@postLogin'));
 
 Route::get('/profil',array('as'=>'profil','uses'=>'UserController@profil'));
+Route::post('/profilUpdate',array('as'=>'profil','uses'=>'UserController@profilUpdate'));
+Route::post('/profilSifre',array('as'=>'profil','uses'=>'UserController@profilSifre'));
 
 
 
 
+Route::get('/dosyalar',array('as'=>'dosyalar','uses'=>'dosyaController@dosyalar'));
 
+
+Route::get('/izinler',array('as'=>'izinler','uses'=>'izinController@izinler'));
 
 ///Route::get('/home', 'HomeController@index')->name('home');
 

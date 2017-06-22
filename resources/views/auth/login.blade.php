@@ -1,3 +1,7 @@
+<script>
+window.open('{{url('/')}}','_self');
+</script>
+
 @extends('layouts.app')
 
 @section('content')

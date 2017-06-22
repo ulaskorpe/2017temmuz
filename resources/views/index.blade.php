@@ -27,7 +27,6 @@ define('url','http://localhost:8080/orangetech/public');
     <div style="width: 100%;margin:auto;">
 
        <div style="min-height: 1000px; width: 70%;border: 0px solid black;margin-left: 300px;">
-       
            @yield('goster') 
     </div>
     </div>
