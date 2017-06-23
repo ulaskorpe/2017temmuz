@@ -48,13 +48,19 @@ Route::post('/profilUpdate',array('as'=>'profil','uses'=>'UserController@profilU
 Route::post('/profilSifre',array('as'=>'profil','uses'=>'UserController@profilSifre'));
 
 
-
-
 Route::get('/dosyalar/{personel_id?}',array('as'=>'dosyalar','uses'=>'dosyaController@dosyalar'));
 Route::post('/dosyaYukle',array('as'=>'dosyaYukle','uses'=>'dosyaController@dosyaYukle'));
 Route::get('/dosyalar/sil/{id?}',array('as'=>'dosyaSil','uses'=>'dosyaController@dosyaSil'));
 
-Route::get('/izinler',array('as'=>'izinler','uses'=>'izinController@izinler'));
+Route::get('/izinler/{personel_id?}',array('as'=>'izinler','uses'=>'izinController@izinler'));
+Route::get('/izinler/guncelle/{id?}',array('as'=>'izinGuncelle','uses'=>'izinController@izinGuncelle'));
+Route::get('/izinler/sil/{id?}',array('as'=>'izinSil','uses'=>'izinController@izinSil'));
+
+Route::post('/izinIslem',array('as'=>'izinEkle','uses'=>'izinController@izinIslem'));
+Route::get('/izinSil',array('as'=>'izinSil','uses'=>'izinController@izinSil'));
+
+
+
 
 ///Route::get('/home', 'HomeController@index')->name('home');
 
