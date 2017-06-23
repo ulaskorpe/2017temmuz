@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 22 Haz 2017, 14:32:13
+-- Üretim Zamanı: 23 Haz 2017, 10:08:39
 -- Sunucu sürümü: 5.7.14
 -- PHP Sürümü: 5.6.25
 
@@ -46,6 +46,21 @@ INSERT INTO `departman` (`id`, `departman_adi`, `kurulus_tarihi`, `created_at`, 
 -- --------------------------------------------------------
 
 --
+-- Tablo için tablo yapısı `dosyalar`
+--
+
+CREATE TABLE `dosyalar` (
+  `id` int(11) NOT NULL,
+  `aciklama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dosya` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `personel_id` int(11) NOT NULL,
+  `tarih` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Tablo için tablo yapısı `izinler`
 --
 
@@ -77,7 +92,8 @@ CREATE TABLE `migrations` (
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2017_06_20_122212_create_personels_table', 1),
-(2, '2017_06_22_134315_izinler', 2);
+(2, '2017_06_22_134315_izinler', 2),
+(3, '2017_06_23_075137_dosyalar', 3);
 
 -- --------------------------------------------------------
 
@@ -139,8 +155,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(2, 'orangeTech', 'info@orangetech.com', '$2y$10$VD265CW9/2uPKKClX9hhSuLtyW8IexbyiqnADmFK8.3Hfx3eOUmd2', '1yXcH2RmkWAUWht1ZSW3vq5xepK6dMOH41x98SCUe8J0roBlGzHheA5yVy1D', '2017-06-22 05:36:09', '2017-06-22 05:36:09'),
-(3, 'ulaskorpe', 'ulaskorpe@gmail.com', '$2y$10$9h5ZmyKm9jvHkAZiUxgmcu774.gS8WTMnI66ZYQiPA9Q7ELa7M3YC', 'p4lL3Y1U9Xq2SIConWFgMAseUeApOWHsVWObi99k9MILmA63VJl1IVfkUmUs', '2017-06-22 06:44:03', '2017-06-22 06:44:03');
+(2, 'orangeTech5', 'info@orangetech.com5', '$2y$10$VD265CW9/2uPKKClX9hhSuLtyW8IexbyiqnADmFK8.3Hfx3eOUmd2', '1yXcH2RmkWAUWht1ZSW3vq5xepK6dMOH41x98SCUe8J0roBlGzHheA5yVy1D', '2017-06-22 05:36:09', '2017-06-22 11:53:47'),
+(3, 'ulas korpe', 'ulaskorpe@gmail.com', '$2y$10$9h5ZmyKm9jvHkAZiUxgmcu774.gS8WTMnI66ZYQiPA9Q7ELa7M3YC', 'p4lL3Y1U9Xq2SIConWFgMAseUeApOWHsVWObi99k9MILmA63VJl1IVfkUmUs', '2017-06-22 06:44:03', '2017-06-23 06:12:02');
 
 --
 -- Dökümü yapılmış tablolar için indeksler
@@ -150,6 +166,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `creat
 -- Tablo için indeksler `departman`
 --
 ALTER TABLE `departman`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Tablo için indeksler `dosyalar`
+--
+ALTER TABLE `dosyalar`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -186,6 +208,11 @@ ALTER TABLE `users`
 ALTER TABLE `departman`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
+-- Tablo için AUTO_INCREMENT değeri `dosyalar`
+--
+ALTER TABLE `dosyalar`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
 -- Tablo için AUTO_INCREMENT değeri `izinler`
 --
 ALTER TABLE `izinler`
@@ -194,7 +221,7 @@ ALTER TABLE `izinler`
 -- Tablo için AUTO_INCREMENT değeri `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Tablo için AUTO_INCREMENT değeri `personel`
 --
