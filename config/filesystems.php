@@ -45,13 +45,13 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
+            'root' => storage_path('../public/personel_dosyalar'),
         ],
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'root' => storage_path('../public/personel_dosyalar'),
+            'url' => env('APP_URL').'/public/personel_dosyalar',
             'visibility' => 'public',
         ],
 

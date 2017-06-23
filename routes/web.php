@@ -50,8 +50,9 @@ Route::post('/profilSifre',array('as'=>'profil','uses'=>'UserController@profilSi
 
 
 
-Route::get('/dosyalar',array('as'=>'dosyalar','uses'=>'dosyaController@dosyalar'));
-
+Route::get('/dosyalar/{personel_id?}',array('as'=>'dosyalar','uses'=>'dosyaController@dosyalar'));
+Route::post('/dosyaYukle',array('as'=>'dosyaYukle','uses'=>'dosyaController@dosyaYukle'));
+Route::get('/dosyalar/sil/{id?}',array('as'=>'dosyaSil','uses'=>'dosyaController@dosyaSil'));
 
 Route::get('/izinler',array('as'=>'izinler','uses'=>'izinController@izinler'));
 
@@ -59,4 +60,4 @@ Route::get('/izinler',array('as'=>'izinler','uses'=>'izinController@izinler'));
 
 
 
-Route::get('/home', 'HomeController@home')->name('home');
+//Route::get('/home', 'HomeController@home')->name('home');

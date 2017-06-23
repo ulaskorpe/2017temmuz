@@ -18,20 +18,20 @@
             <ul class="menu-content">
           
               <li @if(Session::get('sayfa')==1) class="active" @endif >
-              <a href="<?=url;?>/personel" data-i18n="nav.dash.project" class="menu-item">Personel</a>
+              <a href="{{url('/personel')}}" data-i18n="nav.dash.project" class="menu-item">Personel</a>
               </li>
 
               
            
-              <li @if(Session::get('sayfa')==2) class="active" @endif><a href="<?=url;?>/departmanlar" data-i18n="nav.dash.ecommerce" class="menu-item">Departmanlar</a>
+              <li @if(Session::get('sayfa')==2) class="active" @endif><a href="{{url('/departmanlar')}}" data-i18n="nav.dash.ecommerce" class="menu-item">Departmanlar</a>
               </li>
 
               
             
               <li @if(Session::get('sayfa')==3) class="active" @endif>
-              <a href="<?=url;?>/dosyalar" data-i18n="nav.dash.analytics" class="menu-item">Dosyalar</a>
+              <a href="{{url('/dosyalar/0')}}" data-i18n="nav.dash.analytics" class="menu-item">Dosyalar </a>
               </li>
-              <li @if(Session::get('sayfa')==4) class="active" @endif><a href="<?=url;?>/izinler" data-i18n="nav.dash.crm" class="menu-item">Personel İzinleri</a>
+              <li @if(Session::get('sayfa')==4) class="active" @endif><a href="{{url('/izinler')}}" data-i18n="nav.dash.crm" class="menu-item">Personel İzinleri</a>
               </li>
               
             </ul>
